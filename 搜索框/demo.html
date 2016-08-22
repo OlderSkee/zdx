@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input,button{
+            outline-style: none;
+            border: 0 none;
+
+        }
+        .box{
+            width: 258px;
+            height: 40px;
+            background-color: red;
+            margin: 100px auto;
+        }
+        .box input{
+            width: 208px;
+            height: 40px;
+            background: url("images/left.jpg") no-repeat;
+            padding-left: 8px;
+            float: left;
+            color: #ccc;
+        }
+        .box button{
+            width: 42px;
+            height: 40px;
+            background: url("images/right.jpg") no-repeat;
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+
+            function $(id){
+                return document.getElementById(id)
+            }
+
+            $("txt").onfocus = function(){
+                if($("txt").value == "请输入... "){
+                    $("txt").value = ""
+                    $("txt").style.color = "#333"
+                }
+            }
+            $("txt").onblur = function () {
+                if($("txt").value == ""){
+                    $("txt").value = "请输入... "
+                    $("txt").style.color = "#ccc"
+                }
+            }
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <input id="txt" type="text" value="请输入... "/>
+    <button></button>
+</div>
+</body>
+</html>

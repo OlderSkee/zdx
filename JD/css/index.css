@@ -1,0 +1,217 @@
+@charset "UTF-8";
+.bgbanner{
+    position: relative;
+
+}
+
+.bgbanner a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 466px;
+    background:url("../images/bgbanner.jpg") no-repeat top center;
+}
+.content{
+
+    position: relative;
+}
+.content .picture{
+    height: 453px;
+    width: 730px;
+    margin: 12px 0 0 220px;
+    background-color: pink;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+.content .big-picture{
+    height: 453px;
+    width: 600%;
+    position: absolute;
+    left: -730px;
+    top: 0;
+}
+.big-picture div{
+    float: left;
+}
+
+.picture ul{
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    /*margin-left: -66px;*/
+}
+.picture li{
+    width: 18px;
+    height: 18px;
+    float: left;
+    text-align: center;
+    line-height: 18px;
+    background-color: #3E3E3E;
+    color: #FFF;
+    border-radius: 50%;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.picture .p-point{
+    background-color: #c81623;
+}
+
+
+.l-zuoyou,
+.r-zuoyou{
+    height: 62px;
+    width: 28px;
+    color:#fff;
+    position: absolute;
+    top:50%;
+    margin-top: -31px;
+    text-align: center;
+    font:400 22px/62px "simsun";
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.l-zuoyou{
+    left: 0;
+}
+.r-zuoyou{
+    right: 0;
+}
+.content .news{
+    width: 248px;
+    height: 452px;
+    border: 1px solid #E4E4E4;
+    float: right;
+    margin-top: 12px;
+
+}
+.jd-news{
+    height: 200px;
+    border-bottom: 1px dashed #e4e4e4;
+}
+/*.jd-news .t-news,*/
+/*.life-news .t-news*/
+.news .t-news{
+    height: 43px;
+    border-bottom: 1px dotted #e4e4e4;
+    padding-left: 15px;
+    padding-right: 10px;
+    font: 15px/43px "microsoft yahei";
+}
+
+.jd-news .t-news h3{
+    float: left;
+
+}
+.jd-news .t-news a{
+    float: right;
+    font:400 12px/43px "simsun"
+}
+
+.jd-news .b-news{
+    padding: 8px 0 0 15px;
+}
+
+.jd-news .b-news li{
+    line-height: 28px;
+}
+
+.jd-news .b-news li span{
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.life-news{
+    height: 251px;
+    overflow: hidden;
+    position: relative;
+
+
+}
+.life-news ul{
+    width: 300px;
+
+}
+.life-news li{
+    width: 63px;
+    height: 70px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    float: left;
+    margin: -1px 0 0 -1px;
+    position: relative;
+
+}
+
+.life-news a{
+    display: block;
+    height: 70px;
+    padding-top: 48px;
+    text-align: center;
+}
+.life-news .b-news i{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 14px;
+    left: 18px;
+
+}
+
+.b-news  a i{
+    background: url("../images/life-icon.png") no-repeat top right;
+
+}
+/*.b-news .news-icon2 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -25px;*/
+
+/*}*/
+/*.b-news .news-icon3 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -50px;*/
+
+/*}*/
+/*.b-news .news-icon4 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -75px;*/
+
+/*}*/
+/*.b-news .news-icon5 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -50px;*/
+
+/*}*/
+/*.b-news .news-icon6 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -125px;*/
+
+/*}*/
+/*.b-news .news-icon7 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -150px;*/
+
+/*}*/
+/*.b-news .news-icon8 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -175px;*/
+
+/*}*/
+/*.b-news .news-icon9 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -250px;*/
+
+/*}*/
+/*.b-news .news-icon10 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -200px;*/
+
+/*}*/
+/*.b-news .news-icon11 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -275px;*/
+
+/*}*/
+/*.b-news .news-icon12 a i{*/
+    /*background: url("../images/life-icon.png") no-repeat right -225px;*/
+
+/*}*/
+.jian{
+    position: absolute;
+    left: 114px;
+    top: 43px;
+    width: 12px;
+    height: 15px;
+    background: url("../images/jian.png") no-repeat;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            top: 40px;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+            var btn = document.getElementById("btn");
+            var box = document.getElementById("box");
+            var l = 10;
+            var t = 800;
+            btn.onclick = function () {
+                setInterval(function () {
+                    l = l + (t - l) /10;
+                    box.style.left = l + "px";
+
+
+                },30)
+
+            }
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+<button id="btn">开始</button>
+<div id="box"></div>
+</body>
+</html>

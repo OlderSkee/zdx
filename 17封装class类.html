@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //封装class类
+//            function getClass(classname){
+//                //如果浏览器兼容
+//                if(document.getElementsByClassName){
+//                    return document.getElementsByClassName(classname)
+//                }
+//                //如果浏览器不兼容
+//                var arr = [];
+//                var all = document.getElementsByTagName("*");
+//                for(var i=0; i<all.length; i++){
+//                    if(all[i].className == classname){
+//                        arr.push(all[i])
+//                    }
+//                }
+//                return arr;
+//            }
+            //封装class结束
+
+
+
+            function getClass(classname){
+                if(document.getElementsByClassName){
+                    return document.getElementsByClassName(classname);
+                }
+
+                var all = document.getElementsByTagName("*");
+                var arr = [];
+                for(var i=0; i<all.length; i++){
+
+                    var txtarr = all[i].className.split(" ");
+
+                    for(var j=0; j<txtarr.length; j++){
+
+                        if(txtarr[j] == classname){
+                            arr.push(all[i])
+                        }
+                    }
+
+                }
+                return arr;
+
+            }
+
+
+            var btn = document.getElementById("btn")
+
+                 for(var i=0; i<getClass("demo").length; i++){
+                     getClass("demo")[i].style.backgroundColor = "red"
+                 }
+
+
+
+            }
+
+
+    </script>
+</head>
+<body>
+<button id="btn">触发</button>
+
+<div class="demo"></div>
+<div></div>
+
+<div class="demo"></div>
+<div class="demo"></div>
+<div></div>
+<div class="demo"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

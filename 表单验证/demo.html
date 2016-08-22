@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding:0 ;
+            font-size: 12px;
+        }
+        .box{
+            text-align: center;
+            margin: 200px auto;
+        }
+        input {
+            outline-style: none;
+            height: 18px;
+        }
+        span{
+            display: inline-block;
+            width: 150px;
+            height: 20px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            line-height: 20px;
+            text-align: left;
+            padding-left: 20px;
+            background-color: #ccc;
+            color :#666
+
+        }
+        #btn{
+            height: 30px;
+            width: 50px;
+            margin-top: 10px;
+        }
+        .right{
+            background:url(images/right.png) no-repeat #DFFFDF 4px 3px;
+            border: 1px solid #ACFFAC;
+            color: #5EFF5E;
+        }
+        .wrong{
+            background:url(images/wrong.png) no-repeat #FFDCD0 4px 3px;
+            border: 1px solid #FFAC91;
+            color: #FF6B39;
+
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+
+
+            function $(id){ return document.getElementById(id)}
+            $("btn").onclick = function () {
+                    if( $("txt").value == "" ){
+                        $("result").className = "wrong";
+                        $("result").innerHTML = "输入不能为空";
+
+                    }else if(isNaN($("txt").value)) {
+                        $("result").className = "wrong";
+                        $("result").innerHTML = "请输入数字";
+                        $("txt").value >= 0 && $("txt").value < 60
+
+                    }else if($("txt").value >= 0 && $("txt").value < 60){
+                        $("result").className = "wrong";
+                        $("result").innerHTML = "对不起，您的成绩不及格";
+                    }
+                    else if($("txt").value >= 60 && $("txt").value <=150){
+                        $("result").className = "right";
+                        $("result").innerHTML = "您已及格";
+                    }
+                    else {
+                        $("result").className = "wrong";
+                        $("result").innerHTML = "请输入有效成绩（0-150）!";
+                    }
+
+            }
+
+
+        }
+
+    </script>
+
+</head>
+<body>
+<div class="box">
+   成绩： <input id="txt" type="text"/><span id="result">请输入成绩</span><br/>
+    <button id="btn">查询</button>
+</div>
+</body>
+</html>

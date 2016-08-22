@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    top: 0;
+}
+img{
+    vertical-align: top;
+}
+.box{
+    width: 310px;
+    height: 270px;
+    margin: 100px auto;
+    border: 1px solid #ccc;
+    background-color: pink;
+    position: relative;
+    overflow: hidden;
+}
+.t-box{
+    width: 310px;
+    height: 220px;
+}
+.m-box{
+    width: 620px;
+    height: 220px;
+}
+.pic{
+    width: 310px;
+    height: 220px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.b-box{
+    text-align: center;
+    padding-top: 10px;
+}
+.num{
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    margin-right: 7px;
+    background: url("../images/icon.png") no-repeat -24px -782px;
+    cursor: pointer;
+    text-indent: -20em;
+    overflow: hidden;
+
+}
+.point{
+    background-position: -24px -762px;
+}
+.left,
+.right{
+    display: inline-block;
+    width: 29px;
+    height: 34px;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    background: url("../images/icon.png") no-repeat 5px 0;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+    background-position: -5px -45px;
+}

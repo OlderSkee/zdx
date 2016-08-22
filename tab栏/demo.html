@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            
+            list-style: none;
+            overflow: hidden;
+        }
+        .box{
+            width:  273px;
+            height: 200px;
+            margin:100px auto;
+            text-align: center;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .top li{
+            width: 70px;
+            height: 20px;
+            float: left;
+            line-height: 20px;
+            background-color: #fff;
+            padding: 10px;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+        .buttom span{
+
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+//
+//        var lis=document.getElementsByTagName("li");
+//        var pics=document.getElementsByTagName("span")
+//            for (var i=0; i<lis.length;i++){
+//                lis[i].index = i;
+//                lis[i].onmouseover = function () {
+//
+//                    for (var i=0; i<lis.length; i++)
+//                    {
+//                        lis[i].style.backgroundColor = ""
+//                        pics[i].style.display = "none"
+//                    }
+//                       this.style.backgroundColor="yellowgreen";
+//                       pics[this.index].style.display = "block"
+//
+//
+//                }
+//            }
+
+            function tab(idname){
+                var idname = document.getElementById(idname);
+                var lis = idname.getElementsByTagName("li");
+                var spans = idname.getElementsByTagName("span");
+                for(var i=0; i<lis.length;i++){
+
+                    lis[i].index = i ;
+                    lis[i].onmouseover = function () {
+                        for (var i= 0; i<lis.length; i++){
+                            lis[i].style.backgroundColor = "";
+                            spans[i].style.display = "none";
+                           }
+                            this.style.backgroundColor = "yellowgreen";
+                            spans[this.index].style.display = "block";
+                      }
+                }
+            }
+            tab("one");tab("two");tab("three");
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="one">
+    <div class="top">
+        <ul>
+            <li style="background-color: yellowgreen">图1</li>
+            <li>图2</li>
+            <li>图3</li>
+        </ul>
+    </div>
+    <div class="buttom">
+        <span style="display: block; "><img src="images/1.jpg" width="230" alt=""/></span>
+        <span><img src="images/2.jpg" width="230" alt=""/></span>
+        <span><img src="images/3.jpg" width="230" alt=""/></span>
+    </div>
+
+</div>
+<div class="box" id="two">
+    <div class="top">
+        <ul>
+            <li style="background-color: yellowgreen">图1</li>
+            <li>图2</li>
+            <li>图3</li>
+        </ul>
+    </div>
+    <div class="buttom">
+        <span style="display: block; "><img src="images/1.jpg" width="230" alt=""/></span>
+        <span><img src="images/2.jpg" width="230" alt=""/></span>
+        <span><img src="images/3.jpg" width="230" alt=""/></span>
+    </div>
+
+</div>
+
+<div class="box" id="three">
+    <div class="top">
+        <ul>
+            <li style="background-color: yellowgreen">图1</li>
+            <li>图2</li>
+            <li>图3</li>
+        </ul>
+    </div>
+    <div class="buttom">
+        <span style="display: block; "><img src="images/1.jpg" width="230" alt=""/></span>
+        <span><img src="images/2.jpg" width="230" alt=""/></span>
+        <span><img src="images/3.jpg" width="230" alt=""/></span>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

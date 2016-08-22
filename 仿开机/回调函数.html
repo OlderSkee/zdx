@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img{
+            vertical-align: middle;
+        }
+        .box{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+
+        }
+        span{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            function getStyle(obj,attr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[attr];
+                }else{
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+            }
+            function run(obj,json,fn){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    var flag = true;
+                        for(var attr in json){
+                            var selfStyle = parseInt(getStyle(obj,attr));
+                            var step = (json[attr]-selfStyle)/10;
+                            step = step>0? Math.ceil(step):Math.floor(step);
+                            obj.style[attr] = selfStyle + step + "px";
+                            console.log(selfStyle);
+                            console.log(json[attr]);
+
+                        if(selfStyle != json[attr]){
+                            flag = false;
+                        }
+                    }
+                    if(flag){
+                        clearInterval(obj.timer);
+                        if(fn){
+                            fn();
+                        }
+                    }
+                },30)
+            }
+
+            var b = document.getElementById("b");
+            var span = document.getElementsByTagName("span")[0];
+            span.onclick = function () {
+               run(b,{height:0},function(){
+                   run(b.parentNode,{width:0})
+               })
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<div class="box">
+    <div id="t">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div id="b">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+    <span></span>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #xiaomi{
+            width: 512px;
+            height: 470px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #ccc;
+        }
+        #xiaomi div{
+            width: 100%;
+            height: 235px;
+            position: absolute;
+            left: 0;
+        }
+        #up{
+            top: 0;
+        }
+        #down{
+            bottom: 0;
+        }
+        #pic{
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){return document.getElementById(id);}
+            var timer = null;
+            var top = 0;
+            $("up").onmouseover = function () {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    top++;
+
+                    top <= 0 ? $("pic").style.top = top +"px" : clearInterval(timer);
+
+
+                },5);
+
+            $("down").onmousemove = function () {
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    top--;
+
+                    top >= -1000 ?$("pic").style.top = top+"px":clearInterval(timer)
+
+
+
+                },10)
+            }
+                $("xiaomi").onmouseout = function () {
+                    clearInterval(timer);
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="xiaomi">
+    <img src="mi.png" alt="" id="pic"/>
+
+    <div id="up"></div>
+    <div id="down"></div>
+</div>
+</body>
+</html>

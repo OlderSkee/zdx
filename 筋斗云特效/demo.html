@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+        }
+        .nav{
+            width: 1000px;
+            height: 43px;
+            margin: 200px auto;
+            background: url("images/rss.png") no-repeat right center;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            position: relative;
+        }
+        .cloud{
+            width: 83px;
+            height: 43px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: url("images/cloud.gif") no-repeat;
+        }
+        .nav ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .nav li{
+            float: left;
+            height: 43px;
+            width: 83px;
+            line-height: 43px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var nav = document.getElementById("nav");
+            var cloud = nav.children[0];
+            var lis = nav.children[1].children;
+            var leader = 0, target = 0,save = 0;
+            setInterval(function () {
+                leader = leader + (target - leader) / 10;
+                cloud.style.left = leader + "px";
+            },10)
+
+            for(var i=0; i<lis.length; i++){
+//                  lis[i].index = i;
+                lis[i].onmousemove = function () {
+//                    target =  this.index * 83
+                    target = this.offsetLeft;
+                }
+                lis[i].onclick = function () {
+                    save = this.offsetLeft;
+
+                }
+                lis[i].onmouseout = function () {
+                    target = save;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="nav" id="nav">
+    <div class="cloud"></div>
+    <ul>
+        <li>首页新闻</li>
+        <li>师资力量</li>
+        <li>活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+    </ul>
+</div>
+
+</body>
+</html>

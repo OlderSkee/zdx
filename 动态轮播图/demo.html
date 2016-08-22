@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        .big{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin: 200px auto;
+            padding: 10px;
+        }
+        .box{
+            width: 500px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+
+        }
+        ul{
+            width: 800%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+       
+
+        ol{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        li{
+            float: left;
+        }
+        ol li{
+            margin-right: 10px;
+            background-color: #fff;
+            height: 20px;
+            width: 20px;
+            color: #000;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .bg{
+            background-color: yellowgreen;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+//            var box = document.getElementById("box");
+//            var ul = box.children[0];
+//            var ullis = ul.children;
+//            var ol = document.createElement("ol");
+//            box.appendChild(ol);
+//
+//            ul.appendChild(ul.children[0].cloneNode(true));
+//
+//            for(var i=0; i<ullis.length-1; i++){
+//                var li = document.createElement("li");
+//                ol.appendChild(li);
+//                li.innerHTML = i+1;
+//            }
+//            var ollis = ol.children;
+//            ollis[0].className = "bg";
+//
+//            for(var i=0; i<ollis.length; i++){
+//
+//                ollis[i].index = i;
+//
+//                ollis[i].onmouseover = function () {
+//
+//                    for (var j=0; j<ollis.length; j++){
+//                        ollis[j].className = "";
+//                    }
+//                    this.className = "bg";
+//
+//                    run(ul,-this.index * ullis[0].offsetWidth);
+////                    target = -this.index * 500;
+//                    n = k = this.index;
+//                }
+//
+//                box.onmouseover = function () {
+//                    clearInterval(timer);
+//                }
+//                box.onmouseout = function () {
+//                    timer = setInterval(autoplay,1000);
+//                }
+//            }
+//
+//            var timer = null;
+//            var k = 0;
+//            var n = 0;
+//            timer = setInterval(autoplay,1000);
+//            function autoplay(){
+//
+//                k++;
+//                if(k > ullis.length-1){   //ullis有6个，但是只有5张图， k=4   lis-1=5
+//                    ul.style.left = 0;   //直接跳到第一张
+//                    k = 1;              //跳到第二章的索引值上
+//                }
+//                run(ul,-k*500);
+//
+//                n++;
+//
+//                if(n>ollis.length-1){  // 有5个 olli ，所以n小于4 ，n是索引号，索引号最大为4 ！
+//                    n=0;
+//                }
+//                for(var i=0;i<ollis.length;i++){
+//                    ollis[i].className = "";
+//                }
+//                ollis[n].className = "bg";
+//
+//            }
+//
+            function run(obj,target){
+                clearInterval(obj.timer);
+                var speed = target > obj.offsetLeft ? 10 : -10
+                obj.timer = setInterval(function () {
+                    var result = target - obj.offsetLeft;
+                    obj.style.left = obj.offsetLeft + speed + "px"
+                    if(Math.abs(result) <= 10){
+                        clearInterval(obj.timer);
+                        obj.style.left = target  + "px";
+
+                    }
+                },10)
+
+            }
+
+
+            var box = document.getElementById("box");
+            var ul = box.children[0];
+            var ullis = ul.children;
+            var ol = document.createElement("ol");
+            box.appendChild(ol);
+
+
+
+            for(var i=0;i<ullis.length;i++){
+                var li = document.createElement("li");
+                ol.appendChild(li);
+            }
+            ul.appendChild(ullis[0].cloneNode(true));
+            var ollis = ol.children;
+            for(var i=0;i<ollis.length;i++){
+                ollis[i].index = i;
+                ollis[i].innerHTML = i+1 ;
+                ollis[i].onmouseover = function () {
+                    for(var j=0;j<ollis.length;j++){
+                        ollis[j].className = "";
+                    }
+                    this.className = "bg";
+                    run(ul,-this.index * ullis[0].offsetWidth)
+                    n = k =this.index;
+                }
+            }
+            ollis[0].className = "bg";
+
+            var timer =null;
+            var k = 0;
+            var n=0;
+            timer = setInterval(autoplay,1000);
+
+            function autoplay(){
+                k++;
+                if(k>ullis.length - 1){
+                    ul.style.left = 0;
+                    k=1;
+                }
+
+                run(ul,-k*ullis[0].offsetWidth)
+
+                n++;
+                if(n>ollis.length - 1){
+                    n=0;}
+
+                for(var i=0;i<ollis.length;i++){
+                        ollis[i].className = "";
+
+                }
+                ollis[n].className = "bg";
+
+            }
+            var big = box.parentNode
+            big.onmouseout = function () {
+                timer = setInterval(autoplay,1000);
+
+            }
+            big.onmouseover = function () {
+                clearInterval(timer);
+            }
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="big">
+    <div class="box" id="box">
+        <ul>
+            <li><img src="images/1.jpg" alt=""/></li>
+            <li><img src="images/2.jpg" alt=""/></li>
+            <li><img src="images/3.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+            <li><img src="images/5.jpg" alt=""/></li>
+        </ul>
+        <!--<ol>-->
+            <!--<li class="bg">1</li>-->
+            <!--<li>2</li>-->
+            <!--<li>3</li>-->
+            <!--<li>4</li>-->
+            <!--<li>5</li>-->
+        <!--</ol>-->
+    </div>
+</div>
+
+</body>
+</html>

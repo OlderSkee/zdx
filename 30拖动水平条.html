@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #big{
+            width: 400px;
+            height: 10px;
+            background-color: #cccccc;
+            margin: 200px auto;
+            position: relative;
+        }
+        #small{
+            width: 10px;
+            height: 24px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            top: -7px;
+            cursor: pointer;
+        }
+        #span {
+            position: absolute;
+        }
+        #mask{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 10px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var small = document.getElementById("small");
+            var big = document.getElementById("big")
+            var span = document.getElementById("span");
+            var mask = document.getElementById("mask");
+            small.onmousedown = function () {
+
+                document.onmousemove = function (event) {
+                    var event = event || window.event;
+                    var move = event.clientX - big.offsetLeft;
+                    var long = big.offsetWidth - small.offsetWidth;
+
+                    if (move<0){
+                        move = 0;
+                    }else if(move > long ){
+                        move = long;
+                    }
+
+                    small.style.left = move + "px";
+                    mask.style.width = move + "px";
+                    span.innerHTML = "鼠标拖动了"+move + "px，百分比为"+ parseInt(move/long*100) + "%";
+
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<span id="span"></span>
+
+<div id="big">
+    <div id="small"></div>
+    <div id="mask"></div>
+
+</div>
+
+</body>
+</html>

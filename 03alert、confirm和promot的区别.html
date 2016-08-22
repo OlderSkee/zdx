@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>  
+<meta charset="utf-8">
+<script type="text/javascript">  
+function show_alert(){  
+    alert('第一行\n第二行');  
+}  
+  
+function show_confirm(){  
+    var result = confirm('是否删除！');  
+    if(result){  
+        alert('删除成功！');  
+    }else{  
+        alert('不删除！');  
+    }  
+}  
+  
+function show_prompt(){  
+    var value = prompt('输入你的名字：', '默认名字');  
+
+    if(value == null){  
+        alert('你取消了输入！');  
+    }else if(value == ""){  
+        alert('姓名输入为空，请重新输入！');  
+        show_prompt();  
+    }else{  
+        alert('你好，'+value);  
+    }  
+}  
+</script>  
+</head>  
+<body>  
+<input id="alert_button" type="button" value="alert" onclick="show_alert()" >  
+<input id="confirm_button" type="button" value="confirm" onclick="show_confirm()" >  
+<input id="prompt_button" type="button" value="prompt" onclick="show_prompt()" >  
+</body>  
+</html>  

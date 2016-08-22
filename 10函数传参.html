@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        span{
+            display: block;
+        }
+        button{
+            width: 100px;
+            margin: 10px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 10px;
+            float: left;
+            display: none;
+        }
+
+    </style>
+    <script>
+        function _open(obj){
+            var obj=document.getElementById(obj);
+            obj.style.display="block"
+
+        }
+    </script>
+</head>
+<body>
+<span>
+<button onclick="_open('box1')">第1个盒子</button>
+<button onclick="_open('box2')">第2个盒子</button>
+<button onclick="_open('box3')">第3个盒子</button>
+<button onclick="_open('box4')">第4个盒子</button>
+</span>
+<div id="box1">1</div>
+<div id="box2">2</div>
+<div id="box3">3</div>
+<div id="box4">4</div>
+</body>
+</html>

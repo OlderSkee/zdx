@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box")
+//    window.onresize = function () {
+//        box.innerHTML = window.innerWidth ;
+//    }
+    window.onresize = throttle(function () {
+        box.innerHTML = window.innerWidth ;
+    },500)
+    function throttle(fn,delay){
+        var timer = null;
+
+        return function () {
+            clearTimeout(timer)
+            timer = setTimeout(fn,delay)
+        }
+    }
+</script>

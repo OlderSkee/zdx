@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        function zdx(){
+        		var x=prompt("请输入一个三位数");
+     	var bai=parseInt(x/100);
+     	var shi=parseInt(x%100/10);
+     	var ge=parseInt(x%100%10);
+
+     	if (bai<10&&bai>1) {
+     	bai>shi?
+     	bai>ge?
+     	alert(bai):alert(ge)
+     	:shi>ge?
+     	alert(shi):alert(ge);
+     	}
+     	else{
+     		alert("请输入一个三位数")
+     	}
+        }
+        
+        zdx();
+
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

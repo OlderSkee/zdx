@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            width: 500px;
+            height: 500px;
+            margin: 200px auto;
+        }
+        input,button{
+            margin: 10px;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id);}
+            $("btn1").onclick = function () {
+              $("word1").innerHTML   = $("txt").value.indexOf($("index").value);
+
+
+
+            }
+            $("btn2").onclick = function () {
+                $("word2").innerHTML = $("txt").value.lastIndexOf($("index").value)
+
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt"/><br/>
+<input type="text" id="index"/><br/>
+<button id="btn1">从前面索引</button><button id="word1">返回值</button><br/>
+
+<button id="btn2">从后面索引</button><button id="word2">返回值</button>
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 270px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll{
+            width: 20px;
+            height: 100%;
+            background-color: #ccc;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .content{
+            padding: 5px 25px 5px 5px ;
+            position: absolute;
+
+
+        }
+        .bar {
+            height: 100px;
+            width: 20px;
+            background-color: red;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+
+            var box = document.getElementById("box");
+            var scroll = box.children[1];
+            var bar = scroll.children[0];
+            var content = box.children[0];
+            bar.style.height = box.offsetHeight/content.offsetHeight *scroll.offsetHeight + "px";
+
+            bar.onmousedown = function (event) {
+                var event = event || window.event;
+                var that = this;
+                var bartop = event.clientY - that.offsetTop;
+
+
+                document.onmousemove = function (event) {
+
+                    var event = event || window.event;
+                    var y1 = event.clientY - bartop;
+                    var y2 = scroll.offsetHeight - bar.offsetHeight;
+                    if(y1<0){
+                        y1=0;
+                    }else if(y1>y2){
+                        y1=y2;
+                    }else{
+                        content.style.top = - (content.offsetHeight - box.offsetHeight )/y2*y1 + "px";
+                    }
+                    that.style.top = y1 + "px";
+                    window.getSelection?window.getSelection().removeAllRanges():document.selection.empty();
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content">
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+    容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字容器中的文字
+
+    </div>
+
+    <div class="scroll">
+        <div class="bar"></div>
+    </div>
+</div>
+
+</body>
+</html>

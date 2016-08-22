@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        var a=prompt("请输入一元二次方程的a...");
+        var b=prompt("请输入一元二次方程的b...");
+        var c=prompt("请输入一元二次方程的c...");
+
+       	var m=Math.pow(b,2)-4*a*c;	 //判别式delta
+       	var x1=(-b+Math.sqrt(m))/2/a;	//根x1
+        var x2=(-b-Math.sqrt(m))/2/a;   //根x2
+       	var n=(-m)/4/a;					//顶点，最值
+       	var x=-b/2/a;					//对称轴
+   
+       if (m>=0) { //m>0时
+
+			       		if (a>0) {
+			       					alert("原方程是"+a+"X2+"+b+"X+"+c+"\n\rx1="+x1+"\n\rx2="+x2+"\n\r有最小值"+n+"\n\r此时X的值为"+x);
+			       				}
+			       		else
+			       				{
+			       					alert("原方程是"+a+"X2+"+b+"X+"+c+"\n\rx1="+x1+"\n\rx2="+x2+"\n\r有最大值"+n+"\n\r此时X的值为"+x);
+			       				}
+			     }		
+
+       		else 
+       		   	{
+ 
+			       		if (a>0){
+							alert("原方程是"+a+"X2+"+b+"X+"+c+"\n\r方程无解"+"\n\r有最小值"+n+"\n\r此时X的值为"+x);
+
+			       		}
+			       		else
+			       		{	
+			       			alert("原方程是"+a+"X2+"+b+"X+"+c+"\n\r方程无解"+"\n\r有最大值"+n+"\n\r此时X的值为"+x);
+			       		}
+
+
+
+
+
+
+}
+		</script>
+    </head>
+    <body>
+    </body>
+</html>

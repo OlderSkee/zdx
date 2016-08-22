@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            height: 30px;
+            background-color: #000;
+            font: 700 15px/30px "microsoft yahei";
+            color: #cccccc;
+            padding-left: 10px;
+
+        }
+        .box{
+            position: relative;
+        }
+        .login{
+            width: 300px;
+            height: 300px;
+            border: 2px solid #cccccc;
+            position: absolute;
+            left: 50%;
+            margin-left: -150px;
+            margin-top:  150px;
+            display: none;
+
+        }
+        .move{
+            width: 300px;
+            height: 30px;
+            background-color: #577bff;
+            color: #cccccc;
+            font: 700 15px/30px "microsoft yahei";
+
+
+        }
+        .message{
+            float: left;
+            cursor:move;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+        }
+
+        .zhuce{
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+
+
+            var box = document.getElementById("box");
+            var zhuce = box.children[0].children[0];
+            var login = box.children[1];
+            var close = login.children[0].children[1];
+            var message = login.children[0].children[0];
+            zhuce.onclick = function () {
+                login.style.display = "block";
+            }
+            close.onclick = function () {
+                login.style.display = "none";
+            }
+
+            message.onmousedown = function (event) {
+                var event = event || window.event;
+
+                var x = event.clientX - login.offsetLeft;
+                var y = -event.clientY - login.offsetTop;
+
+                document.onmousemove = function (event) {
+                    var event = event || window.event;
+                    login.style.left = event.clientX -x +150 + "px";
+                    login.style.top = event.clientY - y -150 + "px";
+
+                }
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="top">
+        <span class="zhuce">注册信息</span>
+    </div>
+    <div class="login">
+        <div class="move">
+            <span class="message">注册信息（可以拖拽）</span>
+            <span class="close">【关闭】</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

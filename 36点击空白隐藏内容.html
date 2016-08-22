@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #mask {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .3);
+            display: none;
+        }
+        #show{
+            width: 300px;
+            height: 300px;
+            background-color: #FFFFFF;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -150px 0 0 -150px;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var login = document.getElementById("login");
+            var mask = document.getElementById("mask");
+            var show = document.getElementById("show");
+            login.onclick = function (event) {
+                mask.style.display = "block";
+                show.style.display = "block";
+
+                var event = event || window.event ;
+
+                if(event||event.stopPropagation){
+                    event.stopPropagation()
+                }else{
+                    event.cancelable = true;
+                }
+            }
+            document.body.onclick = function (event) {
+                var event = event || window.event;
+                var targetid = event.target?event.target.id:event.srcElement.id
+
+                if (targetid != "show" ){
+                    mask.style.display = "none";
+                    show.style.display = "none";
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="javascript:;" id="login">注册</a>
+<div id="mask"></div>
+<div id="show"></div>
+</body>
+</html>

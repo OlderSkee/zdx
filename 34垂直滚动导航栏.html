@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul,ol{list-style: none;}
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+
+        }
+        body{
+            /*overflow: hidden;*/
+        }
+        ul{
+            width: 100%;
+            height: 100%;
+        }
+        ul li{
+            width: 100%;
+            height: 100%;
+        }
+        ol {
+            position: fixed;
+            left: 50px;
+            top: 10px;
+
+        }
+        ol li{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+        div {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            background-color: #000;
+            color: #FFFFFF;
+            left: 50%;
+            z-index: 999;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+        }
+        #up{
+            top: 0;
+        }
+        #down{
+            bottom: 0;
+        }
+    </style>
+    <script src="my.js"></script>
+    <script>
+        window.onload = function () {
+            var ulbox = document.getElementById("ul");
+            var ullis = ulbox.children;
+            var olbox = document.getElementById("ol");
+            var ollis = olbox.children;
+            var bgc = ["pink","blue","green","orange","red"]
+            var down = document.getElementById("down")
+            var up = document.getElementById("up")
+            var  x =0
+
+            var leader = 0,target = 0,timer = null;
+            for(var i = 0; i<ollis.length; i++){
+                ollis[i].index = i;
+                ullis[i].style.backgroundColor = bgc[i];
+                ollis[i].style.backgroundColor = bgc[i];
+
+                ollis[i].onclick = function () {
+                    clearInterval(timer);
+                    target = ullis[this.index].offsetTop;
+
+                    timer = setInterval(function () {
+                        leader = leader + (target -leader) / 10;
+                        window.scrollTo(0,leader);
+                        console.log(target)
+
+
+                    },30)
+
+                }
+
+
+
+
+
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="up">上</div>
+<div id="down">下</div>
+<ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<ol id="ol">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 350px;
+            height: 250px;
+            border: 1px solid #cccccc;
+            margin: 150px auto;
+        }
+        .top {
+            padding: 5px 0 0 10px;
+            color: #405eff;
+            font-weight: 700;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            background: url("images/icon.png") no-repeat;
+            margin: 10px;
+            float: left;
+        }
+        .right {
+            float: left;
+            margin: 15px;
+        }
+        .t-bottom{
+            overflow: hidden;
+        }
+        .b-bottom {
+            margin: 15px;
+            font-size: 14px;
+        }
+        .yunshi{
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .yunshi .star1{
+            width: 80px;
+            height: 13px;
+            display: inline-block;
+            background: url("images/yunshi.png") no-repeat ;
+        }
+        .star2{
+            width: 48px;
+            height: 13px;
+            display: inline-block;
+            background: url("images/yunshi.png") no-repeat left bottom;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id){ return document.getElementById(id)};
+            var star = [3,4,4,1,5,2,3,4,5,2,1,5];
+            var stardetail = ["白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天秤座","天蝎座","射手座","摩羯座","水瓶座","双鱼座"]
+
+                $("sele").onchange = function () {
+                    var n = this.value;
+                    $("icon").style.backgroundPosition = " 0 " + (-n*50) + "px";
+                    $("star").style.width = "" + (star[n] * 16) + "px";
+                    $("stardetail").innerHTML = stardetail[n];
+
+                }
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        星座运势
+    </div>
+    <div class="bottom">
+            <div class="t-bottom">
+                <div class="icon" id="icon">
+
+                </div>
+                <div class="right">
+                    <select name="" id="sele">
+                        <option value="0">白羊座(03.21-04.19)</option>
+                        <option value="1">金牛座(04.20-05.20)</option>
+                        <option value="2">双子座(05.21-06.21)</option>
+                        <option value="3">巨蟹座(06.22-07.22)</option>
+                        <option value="4">狮子座(07.23-08.22)</option>
+                        <option value="5">处女座(08.23-09.22)</option>
+                        <option value="6">天秤座(09.23-10.23)</option>
+                        <option value="7">天蝎座(10.24-11.22)</option>
+                        <option value="8">射手座(11.23-12.21)</option>
+                        <option value="9">摩羯座(12.22-01.19)</option>
+                        <option value="10">水瓶座(01.20-02.18)</option>
+                        <option value="11">双鱼座(02.19-03.20)</option>
+
+                    </select>
+                    <div class="yunshi">
+                        今日运势：
+                        <span class="star1">
+                            <span class="star2" id="star">
+
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <div class="b-bottom" id="stardetail">
+            白羊的
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

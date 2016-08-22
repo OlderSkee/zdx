@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            height: 500px;
+            width: 500px;
+            background-color: red;
+            margin: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var box = document.getElementById("box");
+            box.onmousemove = function (event) {
+                var event = event || window.event;
+                var x = event.clientX - box.offsetLeft;
+                var y = event.clientY - box.offsetTop;
+                this.innerHTML = x + "Px" + y + "Px";
+            }
+            box.onmouseout = function () {
+                this.innerHTML = "";
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+
+</div>
+
+</body>
+</html>

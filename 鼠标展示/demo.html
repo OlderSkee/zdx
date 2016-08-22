@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box ul{
+            list-style: none;
+            border-top: 1px solid #ccc;
+            
+        
+        }
+        #box{
+            width: 360px;
+            height: 70px;
+            padding-top: 360px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            background: url("images/01big.jpg") no-repeat;
+        }
+        #box li{
+            width: 71px;
+            float: left;
+            border-left: 1px solid #cccccc;
+        }
+        #box .hi{
+            border-left:0 none;
+        }
+    </style>
+    <script>
+
+        window.onload=function(){
+
+            function change(picn,bg){
+                var obj=document.getElementById(picn);
+                var box=document.getElementById("box");
+                obj.onmousemove=function(){
+                    box.style.backgroundImage=bg;
+                }
+            }
+            change("pic1","url(images/01big.jpg)");
+            change("pic2","url(images/02big.jpg)");
+            change("pic3","url(images/03big.jpg)");
+            change("pic4","url(images/04big.jpg)");
+            change("pic5","url(images/05big.jpg)");
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="hi">
+            <img src="images/01.jpg" id="pic1"/>
+        </li>
+        <li>
+            <img src="images/02.jpg" id="pic2" />
+        </li>
+        <li>
+            <img src="images/03.jpg" id="pic3" />
+        </li>
+        <li>
+            <img src="images/04.jpg" id="pic4" />
+        </li>
+        <li>
+            <img src="images/05.jpg" id="pic5" />
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

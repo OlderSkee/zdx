@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 400px;
+            margin: 100px auto;
+        }
+        .box .btn{
+            width: 400px;
+            height: 30px;
+            
+        }
+        .box .tab{
+            width: 300px;
+            height:300px;
+            background-color: pink;
+            text-align: center;
+            line-height: 300px;
+            font-size: 20px;
+            border: 1px solid #000;
+            display: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+//
+            var btns = document.getElementsByTagName("button");
+            var boxs = document.getElementById("box").getElementsByTagName("div")
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].index = i;
+                    btns[i].onclick = function () {
+                            for (var i = 0; i < btns.length; i++) {
+                                btns[i].style.backgroundColor = "";
+                                boxs[i].style.display = "none";
+                            }
+                            this.style.backgroundColor = "red";
+                            boxs[this.index].style.display = "block";
+                }
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+   <div class="btn">
+        <button style="background-color: red">第一个</button>
+        <button>第二个</button>
+        <button>第三个</button>
+        <button>第四个</button>
+        <button>第五个</button>
+   </div>
+    <div  id="box">
+        <div class="tab" style="display: block">11111</div>
+        <div class="tab">22222</div>
+        <div class="tab">33333</div>
+        <div class="tab">44444</div>
+        <div class="tab">55555</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img{
+            position: absolute;
+            left: 0;
+            top: 100px;
+        }
+        div{
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="../my.js"></script>
+    <script>
+        window.onload = function () {
+            var pic = $("#pic");
+//            var pic = document.getElementById("pic");
+            var timer = null;
+            var leader = 0,target = 0;
+            var pictop = pic.offsetTop;
+            window.onscroll = function () {
+                clearInterval(timer);
+                target = scroll().top + pictop;
+
+                timer = setInterval(function () {
+                    leader = leader + (target - leader) / 10;
+                    pic.style.top = leader + "px";
+                },30)
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<img src="images/aside.jpg" id="pic"/>
+<div id="demo">
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+<p>文字</p>
+</div>
+</body>
+</html>

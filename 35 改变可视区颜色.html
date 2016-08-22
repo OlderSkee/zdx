@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload = function () {
+
+        function client(){
+            if(window.innerWidth != null) {
+                return {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                }
+            }else if(document.compatMode === "CSS1Compat") {
+                return {
+                    width: document.documentElement.clientWidth,
+                    height: document.documentElement.clientHeight
+                }
+            }
+                return {
+                    width : document.body.clientWidth,
+                    heigth: document.body.clientHeight
+                }
+
+
+        }
+        resizi();
+        window.onresize = resizi;
+
+        function resizi(){
+            var clientwidth = client().width;
+            if(clientwidth>960){
+                document.body.style.backgroundColor = "red";
+            }else if(clientwidth>640){
+                document.body.style.backgroundColor = "green";
+            }else{
+                document.body.style.backgroundColor = "blue";
+            }
+        }
+
+
+
+    }
+</script>
+<body>
+
+
+
+</body>
+</html>

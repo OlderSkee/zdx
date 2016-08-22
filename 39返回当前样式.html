@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function getStyle(obj,attr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[attr];
+                }else{
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+            }
+            var box = document.getElementById("box")
+            console.log(getStyle(box,"background-color"));
+        }
+
+    </script>
+</head>
+<body>
+<div id="box"></div>
+
+</body>
+</html>

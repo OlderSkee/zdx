@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        div{
+            height: 800px;
+        }
+       .box1{
+            width: 100%;
+            background: url("images/1.jpg") no-repeat;
+            background-size:cover;
+        }
+        .box2{
+            width: 100%;
+            background: url("images/2.jpg") no-repeat;
+            background-size:cover;
+
+        }  .box3{
+            width: 100%;
+            background: url("images/1.jpg") no-repeat;
+            background-size:cover;
+
+        }  .box4{
+            width: 100%;
+            background: url("images/2.jpg") no-repeat;
+            background-size:cover;
+
+        }  .box5{
+            width: 100%;
+            background: url("images/1.jpg") no-repeat;
+            background-size:cover;
+
+        }
+        ul{
+            position: fixed;
+            left: 10px;
+            top: 10px;
+
+        }
+        li{
+            height: 50px;
+            width: 50px;
+            border: 1px solid #000;
+            background-color: red;
+            cursor: pointer;
+        }
+        #up {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            left: 50%;
+            top: 10px;
+        }
+        #down{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            left: 50%;
+            bottom: 10px;
+        }
+        .bg{
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("li").click(function () {
+
+                  var index = $(this).index();
+                $("body").stop().animate({"scrollTop":$("div").eq(index).height()*index},1000);
+
+                })
+
+            $("#up").click(function () {
+                $("body").stop().animate({"scrollTop":$("body").scrollTop()-$("div").first().height()},1000)
+
+            })
+            $("#down").click(function () {
+                $("body").stop().animate({"scrollTop":$("body").scrollTop()+$("div").first().height()},1000)
+
+            })
+
+
+            var oDiv = document.getElementById('div1');
+
+            function onMouseWheel(ev) {/*当鼠标滚轮事件发生时，执行一些操作*/
+                var ev = ev || window.event;
+                var down = true; // 定义一个标志，当滚轮向下滚时，执行一些操作
+                down = ev.wheelDelta?ev.wheelDelta<0:ev.detail>0;
+                if(down){
+                    $("body").stop().animate({"scrollTop":$("body").scrollTop()+$("div").first().height()},1000)
+
+                }else{
+                    $("body").stop().animate({"scrollTop":$("body").scrollTop()-$("div").first().height()},1000)
+                }
+                if(ev.preventDefault){/*FF 和 Chrox      /me*/
+                    ev.preventDefault();// 阻止默认事件
+                }
+                return false;
+            }
+            addEvent(document,'mousewheel',onMouseWheel);
+            addEvent(document,'DOMMouseScroll',onMouseWheel);
+
+
+
+            function addEvent(obj,xEvent,fn) {
+                if(obj.attachEvent){
+                    obj.attachEvent('on'+xEvent,fn);
+                }else{
+                    obj.addEventListener(xEvent,fn,false);
+                }
+            }
+
+
+        })
+
+
+
+    </script>
+</head>
+<body>
+<ul>
+    <li class="bg">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+<button id="up">上</button>
+<button id="down">下</button>
+</body>
+</html>

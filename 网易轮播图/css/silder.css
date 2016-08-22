@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    vertical-align: top;
+}
+.box {
+    width: 310px;
+    height: 260px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+.t-box{
+    width: 310px;
+    height: 220px;
+}
+.m-box{
+    width: 620px;
+    height: 220px;
+}
+.b-box{
+    text-align: center;
+    padding-top: 8px;
+}
+.num{
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    background: url("../images/icon.png") no-repeat -24px -782px;
+    text-indent: -3em;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 8px;
+}
+.point {
+    background-position: -24px -762px;
+}
+.pic{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.left,
+.right{
+    width: 29px;
+    height: 34px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    background: url("../images/icon.png") no-repeat 7px 0;
+    opacity: 0.4;
+    cursor: pointer;
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+    background-position: -7px -45px;
+}

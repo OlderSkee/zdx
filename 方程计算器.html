@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>方程计算器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: rgba(0,0,0,.6);
+            color: #fff;
+
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            margin: 10px auto;
+            text-align: center;
+
+        }
+        button{
+            width: 150px;
+            padding: 5px 10px ;
+            margin:0 auto;
+        }
+        #print{
+            margin: 10px 0;
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            function $(id){ return document.getElementById(id)}
+
+           $("result").onclick= function(){
+                var a = document.getElementById("a").value
+                var b = document.getElementById("b").value
+                var c = document.getElementById("c").value
+                var m=Math.pow(b,2)-4*a*c;	 //判别式delta
+                var x1=(-b+Math.sqrt(m))/2/a;	//根x1
+                var x2=(-b-Math.sqrt(m))/2/a;   //根x2
+                var n=(-m)/4/a;					//顶点，最值
+                var x=-b/2/a;					//对称轴
+
+               if (m>=0) { //m>0时
+
+                   if (a>0) {
+                       document.getElementById("print").innerHTML="原方程是"+a+"x^2+"+b+"x+"+c+"<br>当y=0时<br>x1="+x1+"<br>x2="+x2+"<br>有最小值"+n+"<br>此时X的值为"+x;
+                   }
+                   else
+                   {
+                       document.getElementById("print").innerHTML="原方程是"+a+"X^2+"+b+"X+"+c+"<br>当y=0时<br>x1="+x1+"<br>x2="+x2+"<br>有最大值"+n+"<br>此时X的值为"+x;
+                   }
+               }
+
+               else
+               {
+
+                   if (a>0){
+                       document.getElementById("print").innerHTML="原方程是"+a+"X^2+"+b+"X+"+c+"<br>当y=0时方程无解"+"<br>有最小值"+n+"<br>此时X的值为"+x;
+
+                   }
+                   else
+                   {
+                       document.getElementById("print").innerHTML="原方程是"+a+"X^2+"+b+"X+"+c+"<br>当y=0时方程无解"+"<br>有最大值"+n+"<br>此时X的值为"+x;
+                   }
+
+
+
+
+
+
+               }
+
+               //清空value
+               $("a").value = "";
+               $("b").value = "";
+               $("c").value = "";
+
+
+            }
+
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box1">
+    已知方程为y=ax^2+bx+c<br/><br/>
+    请输入方程的a..<input id="a" type="text" value=""/><br/><br/>
+    请输入方程的b..<input id="b" type="text" value=""/><br/><br/>
+    请输入方程的c..<input id="c" type="text" value=""/><br/><br/>
+<button id="result">计算</button>
+    <div id="print"></div>
+</div>
+</body>
+</html>

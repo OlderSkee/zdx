@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            margin: 100px auto  ;
+            overflow: hidden;
+        }
+        .fabu{
+            padding: 5px 10px;
+            font: 700 15px/20px "microsoft yahei";
+            color: #405eff;
+        }
+        textarea {
+            outline-style: none;
+            resize: none;
+            width: 320px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-right: 25px;
+
+        }
+       ul{
+          list-style: none; 
+       }
+        li{
+            width: 320px;
+            line-height: 25px;
+            border-bottom: 1px dashed #cccccc;
+        }
+        li button{
+            float: right;
+        }
+    </style>
+    <script>
+     window.onload = function () {
+         var btn = document.getElementById("btn");
+         var txt = document.getElementById("txt");
+//         生成ul
+         var ul = document.createElement("ul");
+         btn.parentNode.appendChild(ul)
+//         点击发布
+         btn.onclick = function () {
+             var value = txt.value
+//             判断值是否为空
+             if(value == ""){
+                 alert("输入不能为空");
+                 return ;
+             }
+//             生成li并赋值
+             var newli = document.createElement("li");
+             newli.innerHTML = value ;
+//             清空内容
+             txt.value = "";
+//             判断是第几个li
+             var lis = ul.children;
+             if(lis.length == 0){
+                 ul.appendChild(newli);
+
+             }else{
+                 ul.insertBefore(newli,lis[0])
+             }
+//             生成删除按钮并赋值
+             var del = document.createElement("button");
+             newli.appendChild(del);
+             del.innerHTML = "删除"
+//             遍历删除按钮生成点击事件
+             var btns = ul.getElementsByTagName("button")
+                for(var i=0; i<btns.length; i++){
+                    btns[i].onclick = function () {
+                        ul.removeChild(this.parentNode)
+                    }
+
+                }
+         }
+
+     }
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="fabu">
+        微博发布：
+    </div>
+    <textarea name="" id="txt" cols="30" rows="10"></textarea><button id="btn">发布</button>
+</div>
+
+</body>
+</html>

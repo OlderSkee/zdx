@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: url("1.jpg") no-repeat;
+        }
+        div{
+            width: 100px;
+            height: 50px;
+            margin: 100px auto;
+        }
+        select{
+            height: 30px;
+            width: 100px;
+            background-color: yellowgreen;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+        var choose = document.getElementById("choose");
+        choose.onchange = function () {
+
+            switch (choose.value){
+
+                case "1":
+                    document.body.style.backgroundImage = "url(1.jpg)"
+                    break;
+                case "2":
+                    document.body.style.backgroundImage = "url(2.jpg)"
+                    break;
+                case "3":
+                    document.body.style.backgroundImage = "url(3.jpg)"
+                    break;
+                case "4":
+                    document.body.style.backgroundImage = "url(4.jpg)"
+                    break;
+//                case "5":
+//                    document.body.style.backgroundImage = "url(5.jpg)"
+//                    break;
+                default :
+                    document.body.style.backgroundImage = "url(5.jpg)"
+            }
+        }
+        }
+
+
+    </script>
+</head>
+<body>
+<div>
+<select id="choose">
+    <option value="1">111111</option>
+    <option value="2">222222</option>
+    <option value="3">333333</option>
+    <option value="4">444444</option>
+    <option value="5">555555</option>
+</select>
+</div>
+</body>
+</html>

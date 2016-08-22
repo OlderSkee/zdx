@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+
+
+        }
+        img{
+            vertical-align: top;
+        }
+        .fixed{
+            position: fixed;
+            left: 0;
+            top: 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            function scroll(){
+                if (window.pageXOffset != null) {
+                    return {
+                        left: window.pageXOffset,
+                        top: window.pageYOffset
+                    }
+                }
+                    else if(document.compatMode == "CSS1Compad"){
+                        return {
+                            left : document.documentElement.scrollLeft,
+                            top  : document.documentElement.scrollTop
+                        }
+                    }
+                return {
+                    left : document.body.scrollLeft,
+                    top  : document.body.scrollTop
+                }
+            }
+            var nav = document.getElementById("nav");
+            var main = document.getElementById("main")
+            var navtop = nav.offsetTop;
+            window.onscroll = function () {
+                if(scroll().top >= navtop){
+
+                    nav.className = "nav fixed";
+//                    nav.setAttribute("class","fixed");    //   不可用 会去掉原有的class
+                }else{
+//                    nav.removeAttribute("class","fixed") ;
+                    nav.className = "nav";
+                }
+
+            }
+        }
+
+
+    </script>
+    
+</head>
+<body>
+<div class="top">
+    <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="nav">
+    <img src="images/nav.png" alt=""/>
+</div>
+<div id="box">
+<div class="main" id="main">
+    <img src="images/main.png" alt=""/>
+</div></div>
+</body>
+</html>

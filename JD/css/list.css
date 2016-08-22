@@ -1,0 +1,171 @@
+@charset "UTF-8";
+.nav-l{
+    overflow: hidden;
+    position: relative;
+}
+.t-nav-l i{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font:600 15px "simsun";
+    overflow: hidden;
+
+}
+.t-nav-l i s{
+    width: 15px;
+    height: 7px;
+    position: absolute;
+    left: 0;
+    top: -7px;
+    
+}
+.result .all{
+    height: 44px;
+    line-height: 44px;
+}
+.result i {
+
+    font: 400 12px/44px "simsun";
+    margin: 0 10px 0 10px;
+}
+.banner2{
+     width: 1210px;
+    margin-bottom: 10px;
+}
+.banner2 img{
+    width: 100%;
+}
+
+
+.l-d1,.l-d2{
+    width: 110px;
+    height: 33px;
+    background-color: #f4f4f4;
+    float: left;
+
+}
+.l-d1{
+    height: 120px;
+}
+
+.detail strong,
+.detail span{
+    display: block;
+    line-height: 34px;
+    margin-left: 10px;
+}
+.detail1,
+.detail2,
+.detail3{
+    overflow: hidden; /* 撑开detail*/
+    border-top: 1px solid #e4e4e4;
+}
+.detail3{
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.detail1 ul{
+    height: 98px;
+    width: 936px;
+    float: left;
+    margin: 10px;
+}
+
+.detail1 li a{
+    height: 48px;
+    width: 116px;
+    float: left;
+    border: 1px solid #e4e4e4;
+    margin: -1px 0 0 -1px ;
+
+}
+.detail1 li img{
+    width: 102px;
+    height: 36px;
+    margin: 5px 6px;
+}
+
+.detail .r-d1,
+.detail .r-d2,
+.detail .r-d3{
+    width: 120px;
+    height: 25px;
+    float: right;
+    margin: 3px;
+}
+.detail .r-d1{
+    margin-top: 10px;
+}
+
+
+
+.detail .moremore,
+.detail .choosemore{
+    width: 43px;
+    height: 25px;
+    border: 1px solid #e4e4e4;
+    float: left;
+    line-height: 25px;
+    padding-left: 5px;
+    position: relative;
+    margin-right: 10px;
+
+}
+.detail .choosemore{
+    width: 30px;
+    padding-left: 18px;
+    float: right;
+
+   }
+
+
+.moremore i,
+.detail3 a i{
+    position: absolute;
+    right:  -2px;
+    top: 9px;
+    width: 18px;
+    height: 10px;
+    background: url("../images/down.png");
+
+}
+.choosemore i{
+     position: absolute;
+     left:  2px;
+     top: 7px;
+     width: 18px;
+     height: 12px;
+     background: url("../images/down.png") 0 -68px;
+ }
+
+.detail .m-d2 a{
+    width: 120px;
+    height: 30px;
+    padding-left: 16px;
+    display: block;
+    float: left;
+    line-height: 34px;
+    color: #005aa0;
+}
+.detail .m-d2 a:hover{
+    color: #B1191A;
+}
+
+.comkind .m-d2 a{
+    width: 48px;
+    padding-right: 20px;
+
+}
+.detail3 a{
+
+    height: 25px;
+    display: block;
+    float: left;
+    padding: 0 20px 0 8px;
+    line-height: 25px;
+    margin: 3px 2px 0 8px;
+    border: 1px solid #e4e4e4;
+    position: relative;
+}

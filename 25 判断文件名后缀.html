@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 320px;
+            height: 22px;
+            background-color: yellowgreen;
+            margin: 100px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var file = document.getElementById("file");
+            var span = document.getElementById("span");
+            file.onchange = function () {
+
+
+            var str = file.value.substr(file.value.lastIndexOf(".")).toLowerCase();
+
+            if(str == ".jpg"){
+                span.innerHTML = "格式正确";
+            }else{
+                span.innerHTML = "格式错误";
+            }
+}
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="file" id="file"/>
+    <span id="span"></span>
+</div>
+
+</body>
+</html>

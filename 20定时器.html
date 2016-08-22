@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            font:700 30px/30px "microsoft yahei";
+
+            height: 150px;
+            margin: 300px auto;
+            background-color: yellowgreen;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var Endtime = new Date("2015/1/12 21:00:00")
+            var box = document.getElementById("box");
+
+
+            setInterval(clock,1000);
+            function clock(){
+                var Nowtime = new Date();
+                var second = parseInt((Nowtime.getTime()-Endtime.getTime())/1000);
+
+                var d = parseInt(second / 60 /60 / 24);
+                var h = parseInt(second / 60 /60 % 24);
+                var m = parseInt(second / 60 %60)
+                var s = parseInt(second % 60);
+                d < 10? d = "0"+d : d;
+                h < 10? h = "0"+h : h;
+                m < 10? m = "0"+m : m;
+                s < 10? s = "0"+s : s;
+
+                box.innerHTML="一共"+d+"天 "+h+"小时 "+m+"分 "+s+"秒" ;
+
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+
+</div>
+</body>
+</html>

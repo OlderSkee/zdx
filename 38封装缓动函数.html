@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn0 = document.getElementById("btn0")
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var box = document.getElementById("box");
+
+            btn1.onclick = function () {
+                run(box,"width",200)
+            }
+            btn0.onclick = function () {
+                run(box,"top",0)
+            }
+            btn2.onclick = function () {
+                run(box,"top",500)
+            }
+
+            function run(obj,attr,target){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    //计算原有样式，转化为数值
+                    var selfStyle = parseInt(getStyle(obj,attr));
+                    //计算步长
+                    var step = (target - selfStyle)/10;
+                    //计算方向
+                    step = step>0 ? Math.ceil(step):Math.floor(step);
+                    //计算最后的移动
+                    obj.style[attr] = selfStyle + step + "px";
+                    //判断清除
+                    if(selfStyle == target){
+                        clearInterval(obj.timer);
+                    }
+                    console.log(step);
+
+
+                },30)
+
+
+            }
+            function getStyle(obj,attr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[attr];
+                }else{
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+            }
+
+
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn0">0</button>
+<button id="btn1">200</button>
+<button id="btn2">600</button>
+<div id="box"></div>
+</body>
+</html>

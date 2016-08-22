@@ -1,0 +1,491 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input,span { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;	vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+.main {  /*版心 提取 */
+    width: 1210px;margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+.show {
+    display: block;
+}
+.mask{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.login{
+    display: none;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -125px 0 0 -200px;
+}
+.login span{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+/*导航部分*/
+.nav {
+    background-color: #f1f1f1;
+    height: 30px;
+    line-height: 30px;
+}
+
+.dt
+{
+
+    padding:0 25px 0 10px;
+    position: relative;
+}
+
+.dt i,
+.sanjiao i{
+
+    position: absolute;
+    top:12px;
+    right: 6px;
+    width: 15px;
+    height: 8px;
+    overflow: hidden;
+  
+
+}
+.dt s,
+.sanjiao s{
+    position: absolute;
+    top:-15px;
+    left:0;
+
+}
+.r-nav li{
+    float: left;
+    padding: 0 10px;
+    position: relative;
+}
+
+
+
+
+.r-nav .line {
+    width: 1px;
+    height: 12px;
+    background: #ddd;;
+    margin-top: 10px;
+    padding:0;
+}
+
+.r-nav .sanjiao{
+    padding:0 25px 0 10px;
+}
+
+.phone{
+    width: 15px;
+    height: 20px;
+    float: left;
+    background:url("../images/sprite.png");
+    position: relative;
+    top: 5px;
+    right: 4px;
+
+}
+
+.phone:hover{
+   background-position: 0 -25px;
+}
+
+/*广告部分*/
+.banner{
+    background-color: #8A25C6;
+
+}
+.banner img{
+    margin: 0 auto;
+}
+.top-banner{
+    position: relative;
+}
+.banner-close{
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: url("../images/close.png");
+}
+.banner-close:hover{
+    background-position: 0 -19px;
+}
+
+/*logo部分*/
+.lsc{
+    height: 100px;
+    vertical-align: middle;
+    position: relative;
+    
+}
+.logo a{
+    width: 360px;
+    height: 60px;
+    background: url("../images/logo.png") no-repeat;
+    margin-top:20px ;
+}
+.logo .a-jd{
+    display:inline-block;
+    text-indent: -2000em;
+
+}
+.gif-banner{
+    width: 180px;
+    height: 80px;
+    background: url("../images/dong.gif") no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 170px;
+}
+/*搜索部分*/
+.search{
+    width: 540px;
+    height: 100px;
+
+}
+.search input[type="text"]{
+    width: 451px;
+    height: 32px;
+    color: #666;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+    margin-top: 30px;
+    padding-left: 5px;
+    border:2px solid #b51d1d;
+    border-right: 0 none;
+    float: left;
+}
+.search input[type="button"]{
+    width: 82px;
+    height: 36px;
+    color: white;
+    font-family: "microsoft yahei";
+    font-size: 16px;
+    margin-top: 30px;
+    background-color: #b51d1d;
+    float: left;
+    cursor: pointer;
+}
+.search li{
+    float: left;
+    padding: 0 5px;
+    color: #666;
+    line-height: 28px;
+}
+.search-tip{
+    width: 540px;
+    height: 30px;
+
+}
+/*购物车部分*/
+.car{
+    width: 96px;
+    height: 34px;
+    padding-left: 43px;
+    margin: 32px 65px 0 0;
+    line-height: 34px;
+    border: 1px solid #DFDFDF;
+    position: relative;
+}
+
+.car .icon1{
+    width: 16px;
+    height: 13px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: url("../images/sprite.png") no-repeat -1px -59px;
+
+
+}
+.car .icon2{
+    font: 400 13px/13px simsum;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+}
+
+.car .icon3{
+    width: 16px;
+    height: 14px;
+    background-color: #c81623;
+    position: absolute;
+    top:-5px;
+    right: 20px;
+    line-height: 14px;
+    color:white;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 9px 9px 9px 0;
+}
+
+/*中间的nav*/
+.againnav{
+    height: 44px;
+    border-bottom: 2px solid #B1191A;
+
+}
+.nav-l{
+    width: 210px;
+    height: 44px;
+    float: left;
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+}
+
+.t-nav-l{
+    height: 45px;
+}
+.t-nav-l a{
+    display: block;
+    height: 44px;
+    background-color: #B1191A;
+    color: #fff;
+    font: 400 15px/44px "microsoft yahei";
+    padding-left: 10px;
+}
+.b-nav-l{
+    height: 465px;
+    background-color: #c81623;
+
+}
+.b-nav-l{
+    border: 1px solid #B1191A;
+}
+.b-nav-l .nav-down{
+    height: 31px;
+    padding-left: 10px;
+    font: 400 14px/30px "microsoft yahei";
+    color: #fff;
+}
+.b-nav-l .nav-down h3{
+    float: left;
+
+}
+
+.b-nav-l .nav-down span{
+    float: right;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.nav-m{
+    width: 750px;
+    height: 44px;
+    float: left;
+
+}
+.nav-m li{
+    float:left;
+}
+.nav-m .new{
+    background: url("../images/new.jpg") no-repeat right top;
+}
+.nav-m li a {
+    display: block;
+    height: 44px;
+    font:400 16px/44px "microsoft yahei";
+    padding:0 20px;
+
+
+}
+.nav-r{
+    width: 200px;
+    height: 54px;
+    float: right;
+    background:url("../images/nav-r.jpg") no-repeat ;
+    margin-top: -10px;
+}
+.nav-r a{
+    display: block;
+    width: 200px;
+    height: 54px;
+}
+
+
+
+/*底部*/
+.foot .dkhs{
+
+    height: 54px;
+    padding: 20px 0;
+    background-color: #f4f4f4;
+    position: relative;
+
+    
+}
+.dkhs span{
+    width: 220px;
+    height: 54px;
+    background-color: red;
+    position: absolute;
+    left: 50%;
+
+    /*position: absolute;*/
+    /*top:0px;*/
+    /*left: 10px;*/
+
+}
+.duo{
+    background: url("../images/duo.png");
+    margin-left: -604px;
+}
+.kuai{
+    background: url("../images/kuai.png");
+    margin-left: -300px;
+}
+.hao{
+    background: url("../images/hao.png");
+    margin-left: 4px;
+}
+.sheng{
+    background: url("../images/sheng.png");
+    margin-left: 306px;
+}
+
+
+.foot dl,
+.qx{
+    /*background-color: red;*/
+    height: 156px;
+    width: 200px;
+    float: left;
+    margin-top: 20px;
+}
+.foot dt,
+.qx-jd{
+    font:400 16px/28px "microsoft yahei";
+    margin-bottom: 5px;
+}
+
+.foot dd{
+    height: 20px;
+   }
+/*区县盒子*/
+.foot .qx{
+    background: url("../images/dt.png")  0 -131px;
+}
+.foot .qx-jd{
+    margin-bottom: 15px;
+}
+
+.foot .ckxq{
+    margin-top: 5px;
+    text-align: right;
+}
+/*重置覆盖区县位置*/
+.foot .qx{
+    margin-top: 7px;
+    height: 156px;
+    background-color: yellowgreen;
+    padding-top: 13px;
+}
+/*横线*/
+/*最后底部超链接和图标*/
+.copyright{
+    border-top: 1px solid #e4e4e4;
+    margin-top: 20px;
+    padding: 15px 0 25px 0;
+    text-align: center;
+
+}
+
+.t-cr a{
+    margin:0 7px;
+}
+.m-cr{
+    margin-top: 10px;
+
+}
+.b-cr span{
+    display: inline-block;
+    width: 103px;
+    height: 32px;
+    margin-top: 10px;
+    background-color: red;
+}
+.b-cr .bt1{
+    background: url("../images/bt1.png");
+}
+.b-cr .bt2{
+    background: url("../images/bt2.png");
+}
+.b-cr .bt3{
+    background: url("../images/bt3.jpg");
+}
+.b-cr .bt4{
+    background: url("../images/bt4.png");
+}
+.b-cr .bt5{
+    background: url("../images/bt5.jpg");
+}
+.b-cr .bt6{
+    background: url("../images/bt6.jpg");
+}
+
+

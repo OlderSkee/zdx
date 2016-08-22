@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var txt = "90402";
+            var num = txt.split("");
+            var newnum = [];
+            for(var i=0; i<num.length; i++){
+                switch(num[i]){
+                    case "1":
+                        newnum.push("一");
+                        break;
+                    case "2":
+                        newnum.push("二");
+                        break;
+                    case "3":
+                        newnum.push("三");
+                        break;
+                    case "4":
+                        newnum.push("四");
+                        break;
+                    case "5":
+                        newnum.push("五");
+                        break;
+                    case "6":
+                        newnum.push("六");
+                        break;
+                    case "7":
+                        newnum.push("七");
+                        break;
+                    case "8":
+                        newnum.push("八");
+                        break;
+                    case "9":
+                        newnum.push("九");
+                        break;
+                    default :
+                        newnum.push("零");
+                }
+            }
+            var arr = [];
+            for(var i= 0;i<num.length;i++){
+                arr.unshift(newnum[i]);
+            }
+            var word = ["","十","百","千","万"]
+            var newarr = [];
+            var demo = [];
+            for(var i= 0;i<num.length;i++){
+                newarr[i]=arr[i]+word[i];
+                for(var j=0; j<newarr.length;j++){
+                    if(newarr[i] == "零"){
+                        newarr[i] = "";
+                    }
+                }
+                for(var j=0; j<newarr.length;j++){
+                    if (newarr[i] == "零十"|| newarr[i] == "零百"|| newarr[i] == "零千"){
+                        newarr[i] = "零"
+                    }
+                }
+
+
+
+                demo.unshift(newarr[i]);
+            }
+
+//
+            console.log(txt);
+            console.log(demo.join(""));
+
+
+
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+
+           function run(obj,target){
+               clearInterval(obj.timer);
+               var speed = obj.offsetLeft >　target? -5 : 5
+               obj.timer = setInterval(function () {
+                   var result = target - obj.offsetLeft ;
+                   obj.style.left = obj.offsetLeft + speed + "px";
+
+                   if(Math.abs(result) < 5){
+                       clearInterval(obj.timer);
+                       obj.style.left = target  + "px";
+                   }
+               },20)
+           }
+
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var box = document.getElementById("box");
+            btn1.onclick = function () {
+                run(box,200);
+            }
+            btn2.onclick = function () {
+                run(box,400);
+            }
+                    }
+    </script>
+</head>
+<body>
+<button id="btn1">200</button>
+<button id="btn2">400</button>
+<div id="box"></div>
+</body>
+</html>

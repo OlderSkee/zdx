@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #pic{
+            width: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+
+    </style>
+    <script>
+        window.onload = function () {
+            var pic = document.getElementById("pic");
+            var     leaderX = 0,
+                    leaderY = 0,
+                    targetX = 0,
+                    targetY = 0;
+            setInterval(function () {
+                leaderX = leaderX + (targetX - leaderX) / 10;
+                leaderY = leaderY + (targetY - leaderY) / 10;
+
+                pic.style.left = leaderX + "px";
+                pic.style.top  = leaderY + "px";
+
+            },10)
+
+            document.onmousemove = function (event) {
+                var event = event || window.event;
+                targetX = event.clientX - pic.offsetWidth / 2;
+                targetY = event.clientY - pic.offsetHeight / 2;
+
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<img src="img.jpg" id="pic" alt=""/>
+</body>
+</html>

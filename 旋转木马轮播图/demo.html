@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+        }
+        .box{
+            width: 1200px;
+            margin: 100px auto;
+            height: 100px;
+            position: relative;
+        }
+        .main{
+            height: 500px;
+        }
+        .main li{
+            position: absolute;
+            left: 200px;
+            top: 0;
+
+        }
+        img{
+            width: 100%;
+        }
+        .left,
+        .right{
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            z-index: 99;
+        }
+        .left{
+            left: 0;
+            background: url("images/prev.png") no-repeat;
+        }
+        .right{
+            right: 0;
+            background: url("images/next.png") no-repeat;
+        }
+        .lr{
+            opacity: 0;
+        }
+    </style>
+    <script src="../my.js"></script>
+    <script>
+        window.onload = function () {
+            var main = document.getElementById("main");
+            var lr = document.getElementById("lr");
+            main.onmouseover = function () {
+                animate(lr,{opacity:100})
+            }
+            main.onmouseout = function () {
+                animate(lr,{opacity:0})
+            }
+
+            var json = [
+                { //自定义的最后一个
+
+                    width:300,
+                    top:0,
+                    left:450,
+                    opacity:10,
+                    z:2
+
+                },
+                {   //  1
+                    width:400,
+                    top:20,
+                    left:50,
+                    opacity:20,
+                    z:3
+                },
+                {  // 2
+                    width:600,
+                    top:70,
+                    left:0,
+                    opacity:80,
+                    z:4
+                },
+                {   // 3
+                    width:800,
+                    top:100,
+                    left:200,
+                    opacity:100,
+                    z:5
+                },
+                {  // 4
+                    width:600,
+                    top:70,
+                    left:600,
+                    opacity:80,
+                    z:4
+                },
+                {   //5
+                    width:400,
+                    top:20,
+                    left:750,
+                    opacity:20,
+                    z:3
+                }
+            ];
+            var lis = main.children[0].children;
+            var jieliu = true;
+            change();
+            var lrs = lr.children;
+            for (i in lrs){
+                lrs[i].onclick = function () {
+                    if(this.className == "left"){
+                        if(jieliu == true){
+                            change(true);
+                            jieliu = false;
+
+                        }
+                    }
+                    else{
+                        if(jieliu == true){
+                            change(false);
+                            jieliu = false;
+                        }
+
+                    }
+
+                }
+            }
+            function change(flag){
+                if(flag){
+                    json.push(json.shift());
+                }else{
+                    json.unshift(json.pop());
+                }
+
+                for(var i=0;i<lis.length; i++){
+                    animate(lis[i],{
+                        width: json[i].width,
+                        top: json[i].top,
+                        left: json[i].left,
+                        opacity:json[i].opacity,
+                        zIndex:json[i].z
+                    },function(){
+                        jieliu = true;
+                    })
+                }
+
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="main" id="main">
+        <ul>
+            <li><img src="images/slidepic1.jpg" alt=""/></li>
+            <li><img src="images/slidepic2.jpg" alt=""/></li>
+            <li><img src="images/slidepic3.jpg" alt=""/></li>
+            <li><img src="images/slidepic4.jpg" alt=""/></li>
+            <li><img src="images/slidepic5.jpg" alt=""/></li>
+            <li><img src="images/slidepic6.jpg" alt=""/></li>
+            <!--<li><img src="images/slidepic7.jpg" alt=""/></li>-->
+            <!--<li><img src="images/slidepic8.jpg" alt=""/></li>-->
+            <!--<li><img src="images/slidepic9.jpg" alt=""/></li>-->
+        </ul>
+        <div class="lr" id="lr">
+            <span class="left"></span>
+            <span class="right"></span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

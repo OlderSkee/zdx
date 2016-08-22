@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            function getClass(classname){
+//                if(document.getElementsByClassName){
+//                    return document.getElementsByClassName(classname)
+//                }
+                var all = document.getElementsByTagName("*");
+                var arr = [];
+                for(var i=0;i<all.length;i++){
+
+                    var txtarr = all[i].className.split(" "); //重点   将all的每一个分开！
+                    for(var j=0; j<txtarr.length; j++){
+                        if(txtarr[j]  == classname){        //重点2
+                            arr.push(all[i]);
+                        }
+
+                    }
+                }
+                return arr;
+            }
+//#demo
+            function $(str){
+                var s = str.charAt(0);     //重点3
+//              var s = str.s ubstr(0,1);
+                var ss = str.substr(1);
+                switch(s){
+                    case "#":
+                        return document.getElementById(ss);   //重点4   返回的不仅仅是ss
+                        break;
+                    case ".":
+                        return getClass(ss);            //重点5    与绑定类关联
+                        break;
+                    default :
+                        return document.getElementsByTagName(str);  //重点6    返回的不仅仅是str
+                }
+
+
+            }
+            for(var i=0; i<$("div").length;i++){
+                $("div")[i].style.backgroundColor = "green";
+
+            }                                                           //重点7  div和class都是数组！
+
+            $("#demo").style.backgroundColor = "red";
+            for(var i=0;i<$(".one").length;i++){
+                $(".one")[i].style.backgroundColor = "blue";
+
+            }
+
+
+
+
+        }
+
+
+
+    </script>
+
+
+</head>
+<body>
+<div id="demo"></div>
+<div></div>
+<div class="one"></div>
+<div></div>
+<div class="one"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>
