@@ -1,4 +1,4 @@
 ####这里是Zdx的小站~
 
     在这里记录自己的一些demo，
-[点击这里可以链接到我的个人主~哦](http://OlderSkee.github.io)<br />
+[点这里链接到我的个人主页~](http://OlderSkee.github.io)<br />
