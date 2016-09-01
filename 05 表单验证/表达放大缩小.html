@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .msg{
+            width: 500px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+        span{
+            display:inline-block;
+            background-color: #ccc;
+            margin: 10px 0 10px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            if(!$("#comment").is(":animated")){
+                $(".bigger").click(function () {
+                    $("#comment").animate({"height":'+='+50})
+                });
+                $(".smaller").click(function () {
+                    $("#comment").animate({"height":'-='+50})
+
+                })
+            }
+
+        })
+    </script>
+</head>
+<body>
+<div class="msg">
+    <div class="top">
+        <span class="bigger">放大</span>
+        <span class="smaller">缩小</span>
+    </div>
+    <div class="btm">
+        <textarea id="comment" style="height: 100px; width: 300px; margin-left: 10px;;">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</textarea>
+    </div>
+</div>
+</body>
+</html>

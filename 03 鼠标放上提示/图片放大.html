@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            list-style: none;
+            margin: 100px auto;
+            background-color: red;
+        }
+        li img{
+            width: 200px;
+            float: left;
+        }
+        img{
+            vertical-align: middle;
+        }
+        #tooltip{
+            position:absolute;
+            border:1px solid #ccc;
+            background:#333;
+            padding:2px;
+            display:none;
+            color:#fff;
+
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var x=10;
+            var y=20;
+
+            $("a").mouseover(function (e) {
+                newtip = this.title
+                this.title = ""
+                var imgTitle = newtip? "<br/>" + newtip : "";
+
+                var imgbig = "<div id='tooltip'><img src='"+ this.href +"'/>"+imgTitle+"<\/div>"
+                $("body").append(imgbig)
+
+                $("#tooltip").css({
+                    "left": (e.pageX+x) + "px",
+                    "top": (e.pageY+y) + "px"
+                }).show("fast")
+
+
+            }).mouseleave(function () {
+                this.title = newtip
+                $("#tooltip").remove()
+            }).mousemove(function (e) {
+                $("#tooltip").css({
+                    "left": (e.pageX+x) + "px",
+                    "top": (e.pageY+y) + "px"
+
+                })
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="images/1.jpg" title="图片1"><img src="images/1.jpg" /></a></li>
+    <li><a href="images/2.jpg" title="图片2"><img src="images/2.jpg" /></a></li>
+    <li><a href="images/3.jpg" title="图片3"><img src="images/3.jpg" /></a></li>
+    <li><a href="images/4.jpg" title="图片4"><img src="images/4.jpg" /></a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: middle;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        .box{
+            width: 700px;
+            height: 500px;
+            background-color: orange;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .t-box{
+            width: 480px;
+            height: 300px;
+            background-color: yellowgreen;
+            margin: 30px auto;
+            position: relative;
+
+        }
+        .b-box{
+            width: 480px;
+            height: 100px;
+            background-color: greenyellow;
+            margin: 0 auto;
+            position: relative;
+
+        }
+        ul,ol{
+            width: 1000%;
+            position: absolute;
+        }
+        ul img{
+            height: 300px;
+            float: left;
+        }
+        ol img {
+            height: 100px;
+            float: left;
+        }
+        .btn span{
+            display: block;
+            height: 50px;
+            width: 50px;
+            background: rgba(0, 0, 0, .2);
+            font: 400 30px/50px "simsun";
+            text-align: center;
+            color: #ffffff;
+        }
+        .tl,.tr,.bl,.br{
+            position: absolute;
+            top: 50%;
+            margin-top: -90px;
+            cursor: pointer;
+        }
+        .tl{
+            left: 50px;
+        }
+        .tr{
+            right: 50px;
+        }
+        .bl{
+            left: 50px;
+            margin-top: 140px;
+        }
+        .br{
+            right: 50px;
+            margin-top: 140px;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var btns = $(".btn").children();
+            var tmove = $(".t-box").width();
+            var bmove = $(".b-box").width()/3;
+            $(".t-imgs").append($(".t-imgs").children().eq(0).clone(true))
+            $(".t-imgs").prepend($(".t-imgs").children().eq($(".t-imgs").children().length - 2).clone(true))
+
+            $(".t-imgs").css("left",-tmove+'px')
+            for (var i in btns){
+                var page = 0
+                btns.eq(i).click(function () {
+
+                    if(!$(".t-imgs").is(":animated")) {
+                        if ($(this).is(".tl")) {
+
+                            if (page < $(".t-imgs").children().length - 2) {
+                                page++;
+                                $(".t-imgs").animate({"left": '-=' + tmove})
+                            } else {
+                                $(".t-imgs").css("left", -tmove);
+                                page = 1;
+                                $(".t-imgs").animate({"left": '-=' + tmove})
+                            }
+
+                        } else if ($(this).is(".tr")) {
+                           if(page>0){
+                               page--;
+                               $(".t-imgs").animate({"left":'+='+tmove})
+                           }else{
+                               $(".t-imgs").css("left",-tmove*($(".t-imgs").children().length-1))
+                               page = $(".t-imgs").children().length-3;
+                               $(".t-imgs").animate({"left":'+='+tmove})
+
+                           }
+
+                        } else if ($(this).is(".bl")) {
+                            $(".b-box").animate({"left":'-='+bmove})
+
+
+                        } else if ($(this).is(".br")) {
+                            $(".b-box").animate({"left":'+='+bmove})
+                        }
+
+                    }
+
+
+                })
+            }
+        })
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="t-box">
+        <ul class="t-imgs">
+            <li><img src="images/01.jpg" alt=""/></li>
+            <li><img src="images/02.jpg" alt=""/></li>
+            <li><img src="images/03.jpg" alt=""/></li>
+            <li><img src="images/04.jpg" alt=""/></li>
+            <li><img src="images/05.jpg" alt=""/></li>
+            <li><img src="images/06.jpg" alt=""/></li>
+            <li><img src="images/07.jpg" alt=""/></li>
+            <li><img src="images/08.jpg" alt=""/></li>
+        </ul>
+    </div>
+    <div class="b-box">
+        <ol>
+            <li><img src="images/1.jpg" alt=""/></li>
+            <li><img src="images/2.jpg" alt=""/></li>
+            <li><img src="images/3.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+            <li><img src="images/5.jpg" alt=""/></li>
+            <li><img src="images/6.jpg" alt=""/></li>
+            <li><img src="images/7.jpg" alt=""/></li>
+            <li><img src="images/8.jpg" alt=""/></li>
+        </ol>
+    </div>
+    <div class="btn">
+        <span class="tl"><</span>
+        <span class="tr">></span>
+        <span class="bl"><</span>
+        <span class="br">></span>
+    </div>
+
+</div>
+</body>
+</html>

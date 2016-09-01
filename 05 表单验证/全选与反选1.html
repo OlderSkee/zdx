@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $("#all").click(function () {
+                $(":input").attr("checked",true)
+              })
+            $("#no").click(function () {
+                $(":input").attr("checked",false)
+                })
+            $("#rev").click(function () {
+                $(":input").each(function () {
+                    this.checked = !this.checked
+//                    $(this).attr("checked",!$(this).attr("checked"))
+                })
+            })
+            $("#sub").click(function () {
+                var str = "你选择的是: \r\n"
+                $(":input:checked").each(function () {
+                    str +=$(this).val()+"\r\n"
+                })
+                alert(str)
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    你爱好的运动是？<br/>
+    <input type="checkbox" value="足球"/>足球
+    <input type="checkbox" value="篮球"/>篮球
+    <input type="checkbox" value="排球"/>排球
+    <input type="checkbox" value="网球"/>网球 <br/>
+    <button id="all">全选</button>
+    <button id="no">全不选</button>
+    <button id="rev">反选</button>
+    <button id="sub">提交</button>
+</div>
+</body>
+</html>
