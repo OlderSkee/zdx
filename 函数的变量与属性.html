@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person1(){
+        var name = "张三";//函数里的变量
+        return name;
+    }
+
+    console.log(Person1());   //显示  张三
+
+
+    function Person2(){
+        this.name = "李四"  //函数的属性
+    }
+    var Myname = new Person2(); //实例化
+    console.log(Myname.name)    //调用   显示 李四
+
+    Person2.prototype.age = "16"  //函数的属性
+    console.log(Myname.age) //调用   显示 16
+
+    var obj={name:"王五"}    //对象的属性
+    console.log(obj.name)           //显示 王五
+
+
+</script>
+</body>
+</html>

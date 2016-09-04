@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>画个七巧板</title>
+<head>
+    <script type="text/javascript">
+        var Qb = [
+            {p:[{x:0,y:0},{x:0,y:600},{x:300,y:300}],clolor:"red"},
+            {p:[{x:0,y:0},{x:300,y:300},{x:600,y:0}],clolor:"blue"},
+            {p:[{x:0,y:600},{x:300,y:600},{x:150,y:450}],clolor:"green"},
+            {p:[{x:150,y:450},{x:300,y:300},{x:450,y:450},{x:300,y:600}],clolor:"yellow"},
+            {p:[{x:300,y:300},{x:450,y:450},{x:450,y:150}],clolor:"orange"},
+            {p:[{x:450,y:150},{x:450,y:450},{x:600,y:300},{x:600,y:0}],clolor:"purple"},
+            {p:[{x:300,y:600},{x:600,y:600},{x:600,y:300}],clolor:"pink"}
+        ];
+window.onload = function () {
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    canvas.width = 600 ;
+    canvas.height = 600 ;
+        for(var i=0;i<Qb.length;i++){
+            drew(Qb[i])
+        }
+    function drew(obj){
+        context.beginPath();
+        context.moveTo(obj.p[0].x,obj.p[0].y);
+
+        for(var i=1;i<obj.p.length;i++){
+            context.lineTo(obj.p[i].x,obj.p[i].y);
+        }
+        context.closePath();
+        context.fillStyle = obj.clolor;
+        context.fill();
+        context.strokeStyle = "black";
+        context.stroke();
+    }
+}
+
+    </script>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid #000; margin: 50px auto; display: block;"></canvas>
+</body>
+</html>
