@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            canvas.width = 600;
+            canvas.height = 600;
+
+            context.font = "700 35px microsoft yahei"
+            context.fillText("Canvas画板练习Canvas画板练习",40,100);
+
+            context.fillStyle = "red";
+            context.fillText("Canvas画板练习Canvas画板练习",40,200);
+
+            context.fillStyle = "orange";
+            context.fillText("Canvas画板练习Canvas画板练习",40,300,300);
+
+            var wordStyle = context.createLinearGradient(0,0,600,0)
+            wordStyle.addColorStop(0,"blue")
+            wordStyle.addColorStop(0.25,"green")
+            wordStyle.addColorStop(0.5,"yellow")
+            wordStyle.addColorStop(0.75,"red")
+            wordStyle.addColorStop(1,"black")
+            context.fillStyle = wordStyle;
+            context.fillText("Canvas画板练习Canvas画板练习",40,400);
+
+            var backImage = new Image();
+            backImage.src = "04 轮播图优化2/images/5.jpg"
+            backImage.onload = function () {
+                var  wordStyle2 = context.createPattern(backImage,"repeat");
+                context.fillStyle = wordStyle2;
+                context.font = "700 60px microsoft yahei"
+                context.lineWidth = 2;
+                context.strokeStyle = "blue"
+                context.fillText("Canvas画板练习",40,500);
+                context.strokeText("Canvas画板练习",40,500)
+
+            }
+        }
+    </script>
+</head>
+<body>
+<canvas id="canvas" style="display: block; border: 1px solid #000; margin: 50px auto;"></canvas>
+</body>
+</html>

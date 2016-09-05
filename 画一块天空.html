@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            WIDTH = document.documentElement.clientWidth||document.body.clientWidth;
+            HEIGHT = document.documentElement.clientHeight||document.body.clientHeight;
+            canvas.width = WIDTH;
+            canvas.height = HEIGHT;
+            pi = Math.PI;
+
+//            context.moveTo(x0,y0);
+//            context.quadraticCurveTo(x1,y1,x2,y2);
+//            context.bezierCurveTo(x1,y1,x2,y2,x3,y3);
+
+            var skyStyle = context.createLinearGradient(0,0,0,canvas.height);
+            skyStyle.addColorStop(0,"#000");
+            skyStyle.addColorStop(1,"#035");
+            context.fillStyle = skyStyle;
+
+            context.fillRect(0,0,canvas.width,canvas.height);
+
+
+            for(var i=0;i<200;i++){
+                var R = Math.random()*5+5;
+                var x = Math.random()*canvas.width;
+                var y = Math.random()*canvas.height/2;
+                var rot = Math.random()*360;
+                if(x<canvas.width-R&&x>R&&y<canvas.height-R&&y>R){
+                    drewStar(context,R,x,y,rot);
+                }else{
+                    i--;
+                }
+
+            }
+//            context.lineCap ="round" ;//butt / round /square
+                drewMoon(context,2,900,200,100,30);
+                drewLand(context);
+        }
+        function drewLand(cxt){
+            cxt.save();
+            cxt.beginPath();
+
+            cxt.moveTo(0,HEIGHT*2/3);
+            cxt.bezierCurveTo(500,200,600,700,WIDTH,HEIGHT*2/3);
+            cxt.lineTo(WIDTH,HEIGHT);
+            cxt.lineTo(0,HEIGHT);
+
+            var landStyle = cxt.createLinearGradient(0,WIDTH,0,0);
+            landStyle.addColorStop(0,"#010");
+            landStyle.addColorStop(1,"#590");
+            cxt.fillStyle = landStyle;
+            cxt.fill();
+
+            cxt.closePath();
+            cxt.restore();
+        }
+        function drewMoon(cxt,d,x,y,R,rot,color){  //d 是控制点的横坐标
+            cxt.save();
+            cxt.translate(x,y);
+            cxt.rotate(rot/180*pi);
+            cxt.scale(R,R)
+            moonPath(cxt,d);
+            cxt.fillStyle = color||"#fb5";
+            cxt.fill();
+            cxt.restore();
+
+        }
+        function moonPath(cxt,d){
+            cxt.beginPath();
+
+            cxt.arc(0,0,1,0.5*pi,1.5*pi,true);
+            cxt.moveTo(0,-1);
+            cxt.arcTo(d,0,0,1,1/d*dis(0,-1,d,0))
+
+            cxt.closePath();
+        }
+        function dis(x1,y1,x2,y2){
+            return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+        }
+
+
+        function drewStar(cxt,R,x,y,rot){
+            cxt.save();
+
+            cxt.translate(x,y);
+            cxt.rotate(rot/180*pi)
+            cxt.scale(R,R);
+
+            starPath(cxt);
+
+            cxt.fillStyle = "#FB3"
+            cxt.fill();
+
+            cxt.restore();
+
+            cxt.strokeStyle = "#FB7"
+            cxt.lineWidth = 2;
+//            cxt.miterLimit = 10; //默认10
+            cxt.lineJoin = "round";  // miter / round /bevel
+
+            cxt.stroke();
+
+
+
+        }
+
+        function starPath(cxt){
+            cxt.beginPath();
+            for(var i=0;i<5;i++) {
+                cxt.lineTo(Math.cos((18 + i * 72) / 180 * pi) ,
+                        -Math.sin((18 + i * 72) / 180 * pi) );
+                cxt.lineTo(Math.cos((54 + i * 72) / 180 * pi) * 0.5,
+                        -Math.sin((54 + i * 72) / 180 * pi) * 0.5);
+            }
+
+            cxt.closePath();
+        }
+
+    </script>
+</head>
+<body style = "height: 100%; width: 100%; overflow: hidden;">
+<canvas id="canvas" style = "height: 100%; width: 100%;"></canvas>
+</body>
+</html>
