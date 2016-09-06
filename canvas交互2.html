@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var balls = [];
+        window.onload = function () {
+            //没有var 作为全局变量
+            canvas = document.getElementById("canvas");
+            context = canvas.getContext("2d");
+            canvas.width = 600;
+            canvas.height = 600;
+     //        context.globalAlpha = "0.5";
+     //       context.globalCompositeOperation = "source-over";
+            for(var i=0;i<10;i++){
+                var aball = {
+                    x:Math.random()*canvas.width,
+                    y:Math.random()*canvas.height,
+                    r:Math.random()*50+20
+                }
+                balls[i] = aball;
+            }
+            drewCircle(context,50,50);
+            canvas.addEventListener("mousemove",point)
+        }
+
+
+        function point(e){
+
+            var x = e.clientX - canvas.getBoundingClientRect().left;
+            var y = e.clientY - canvas.getBoundingClientRect().top;
+            console.log(x+","+y)
+            drewCircle(context,x,y)
+
+        }
+
+
+        function drewCircle(cxt,x,y){
+
+            for (var i=0;i<balls.length;i++){
+
+                cxt.beginPath();
+                cxt.arc(balls[i].x,balls[i].y,balls[i].r,0,2*Math.PI)
+
+                if(context.isPointInPath(x,y)){
+                    cxt.fillStyle = "red";
+                }else{
+                    cxt.fillStyle = "blue";
+                }
+                cxt.fill();
+
+                cxt.closePath();
+
+            }
+        }
+    </script>
+</head>
+<body>
+<canvas id="canvas" style="display: block; margin: 50px auto; border: 1px solid #000;"></canvas>
+
+</body>
+</html>
