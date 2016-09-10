@@ -45,34 +45,70 @@
             cursor: pointer;
         }
     </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+
     <script>
-        window.onload = function () {
+//        window.onload = function () {
+//
+//            var nav = document.getElementById("nav");
+//            var cloud = nav.children[0];
+//            var lis = nav.children[1].children;
+//            var leader = 0, target = 0,save = 0;
+//            setInterval(function () {
+//                leader = leader + (target - leader) / 10;
+//                cloud.style.left = leader + "px";
+//            },10)
+//
+//            for(var i=0; i<lis.length; i++){
+////                  lis[i].index = i;
+//                lis[i].onmousemove = function () {
+////                    target =  this.index * 83
+//                    target = this.offsetLeft;
+//                }
+//                lis[i].onclick = function () {
+//                    save = this.offsetLeft;
+//
+//                }
+//                lis[i].onmouseout = function () {
+//                    target = save;
+//                }
+//            }
+//
+//        }
+        $(function () {
+            var save = 0;
 
-            var nav = document.getElementById("nav");
-            var cloud = nav.children[0];
-            var lis = nav.children[1].children;
-            var leader = 0, target = 0,save = 0;
-            setInterval(function () {
-                leader = leader + (target - leader) / 10;
-                cloud.style.left = leader + "px";
-            },10)
+            $("li").each(function (index) {
 
-            for(var i=0; i<lis.length; i++){
-//                  lis[i].index = i;
-                lis[i].onmousemove = function () {
-//                    target =  this.index * 83
-                    target = this.offsetLeft;
-                }
-                lis[i].onclick = function () {
-                    save = this.offsetLeft;
 
-                }
-                lis[i].onmouseout = function () {
-                    target = save;
-                }
-            }
+               $(this).mouseenter(function () {
 
-        }
+                   $(".cloud").stop().animate({"left":index*83+"px"},500)
+
+               })
+
+
+               $(this).click(function () {
+
+                  save  = index*83 ;
+
+               })
+
+                $(this).mouseleave(function () {
+
+
+                        $(".cloud").stop().animate({"left":save+"px"},500)
+
+
+
+
+                })
+
+
+
+            })
+
+        })
     </script>
 </head>
 <body>
