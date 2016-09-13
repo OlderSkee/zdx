@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+    var pet = {
+        words : "叫声",
+        speak : function (say) {
+            console.log(say + this.words)
+        }
+    }
+        pet.speak("提示的")
+
+
+        var dog = {
+            words : "汪汪汪"
+        }
+
+        pet.speak.call(dog,"提示的")
+    </script>
+</body>
+</html>

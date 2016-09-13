@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>点击按钮控制展开全文与收起全文</title>
+    <style type="text/css">
+        #art0{
+            width: 950px;
+            height: auto;
+            border: 1px solid #e7cfcf;
+            padding:10px;
+            margin:0 auto;
+        }
+        .artT{
+            font-weight: bold;
+        }
+        .butT{
+            color:#d5d5d5;
+        }
+        .buttom{
+            text-align: right;
+            line-height: 30px;
+        }
+        .btn{
+            border: 1px solid #636363;
+            padding:5px;
+            text-decoration: none;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*function showdiv(obj) {
+         var x = obj.parentNode;//摘要;
+         var y = x.nextSibling;//正文;
+         x.style.display = "none";
+         y.style.display = "block"
+         };
+         function hidediv(obj) {
+         var y = obj.parentNode.parentNode;
+         var x = y.previousSibling;
+         x.style.display = "block";
+         y.style.display = "none";
+         }*/
+        function showdiv(obj){
+            var x=obj.parentNode;//摘要
+            var y=nextnode(x.nextSibling);//正文
+            x.style.display="none";
+            y.style.display="block"
+        }
+        function hidediv(obj){
+            var y = obj.parentNode.parentNode;//这才是正文
+            var x = nextnode(y.previousSibling);//摘要
+            x.style.display="block";
+            y.style.display="none";
+        }
+        function nextnode(node){
+            if(node.nodeType == 1){ //判断是否是元素节点,排除空的文本节点
+                return node;
+            }
+            if(node.nextSibling){
+                return nextnode(node.nextSibling);
+            }
+        }
+    </script>
+</head>
+<body id="meta_pname">
+<div id="pn">
+    <div id="art0">
+        <p class="artT">青春对白，邮寄我的时光</p>
+        <p class="butT">日期：2016-08-21 09:31:53 点击：7068</p>
+        <p>1、手心捧着的文字，清清浅浅，刻着你的眉，你的眼，素笔深深，想你的日子，光阴开成了一朵思念的花，那妖，那艳。 2、终难忘，年少时光，偶尔脸红心跳的告白，没有离别，没有伤痛，温暖如花，开满整个夏天。 3、多年以后，终于明白，世界上总有两个人是天生一对，有情
+            <a href="#" onclick="showdiv(this);">...全文</a></p>
+        <div class="content" style="display:none;">
+            1、手心捧着的文字，清清浅浅，刻着你的眉，你的眼，素笔深深，想你的日子，光阴开成了一朵思念的花，那妖，那艳。
+            　　	2、终难忘，年少时光，偶尔脸红心跳的告白，没有离别，没有伤痛，温暖如花，开满整个夏天。
+            　　	3、多年以后，终于明白，世界上总有两个人是天生一对，有情的会相爱，久别的会重逢，这是你告诉我的答案。
+            　　	4、月色满空，微凉如斯。你说我不来，你不走，可花期已过，情心已散，我找遍了城市的每个角落，依然不见你的身影，哭泣的蹲在路边，像个孩子。
+            　　	5、说好的幸福，还未到的明天，就挥手再见，是不是每个人的青春，都有无法掩饰的伤，与爱有关，与你有关。
+            　　	6、学会珍惜和善待对你好的人，因为，不是所有的人，都会对你掏心掏肺。
+            　　	7、盛夏，月光倾城。半朵烟花下，我们背靠背沉默着，一直到天明，没有说话，怕一开口就要转身天涯。
+            <p class="buttom">
+                <a href="#" class="btn" onclick="hidediv(this);">收起全文</a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
